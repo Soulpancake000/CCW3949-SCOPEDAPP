@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>Attach</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+  
+    // grab the body of the request
+    var body = request.body.data;
+   
+    // do a sanity check...
+    if (!require(body,['number','url','filename'])){
+        response.setStatus(400);
+        return required_fields.join(', ') + " are all required fields.";
+    }
+   
+    // is the body.record a sys_id? If not, assume it is a number and try to find it's task record...
+    if (!body.record.match(/[a-z0-9]{32}/g)){
+        var task = new GlideRecord('task');
+        task.addQuery('number',body.record);
+        task.query();
+        if (!task.next()){
+            response.setStatus(404);
+            return 'Task not found';
+        }
+        body.record = task.getValue('sys_id');
+    }
+    
+    // fetch the image and attach it to the task
+    var restMessage = new sn_ws.RESTMessageV2();
+    restMessage.setHttpMethod("get");
+    restMessage.setEndpoint(body.url);
+    restMessage.saveResponseBodyAsAttachment('task',body.record,body.filename);
+    var res = restMessage.execute();        
+  
+    // return the status code of the response
+    response.setStatus(res.getStatusCode());
+  
+    // if the status was 200 return the location of the task...
+    if (res.getStatusCode() == 200) return "/nav_to.do?uri=task.do?sys_id=" + body.record;
+  
+    // else return the response that was given to us...
+    else return res.getBody();
+    
+    /**
+     * validator function - return true if all fields are on object
+     * @param  {Object}  object - The object to validate
+     * @param  {Array}   keys   - Array of fields the object must contain
+     * @return {Boolean}        - True if object contains all keys
+     */
+    function require(object,keys){
+        return keys.filter(function(a){ return typeof object[a] !== 'undefined'; }) !== keys.length;
+    }
+})(request, response);
+]]></operation_script>
+        <operation_uri>/api/x_60972_ccw3949/attach_meme</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-03-29 11:58:00</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d5f24f250f313200ebad3e4ce1050ea6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Attach</sys_name>
+        <sys_package display_value="CCW3949" source="x_60972_ccw3949">96e047210f313200ebad3e4ce1050e13</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CCW3949">96e047210f313200ebad3e4ce1050e13</sys_scope>
+        <sys_update_name>sys_ws_operation_d5f24f250f313200ebad3e4ce1050ea6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-03-29 11:58:00</sys_updated_on>
+        <web_service_definition display_value="Attach Meme">8bb2cb250f313200ebad3e4ce1050e0a</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
