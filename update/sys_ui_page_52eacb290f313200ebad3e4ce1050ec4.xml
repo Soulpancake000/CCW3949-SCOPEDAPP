@@ -7,9 +7,60 @@
         <direct>true</direct>
         <endpoint>x_60972_ccw3949_index.do</endpoint>
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
-<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 
-</j:jelly>]]></html>
+  <!-- Ugh...jelly...some people love it....I do not -->
+  <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+  <div style="display:none"><g:evaluate object="true">var g_ck=gs.getSession().getSessionToken()</g:evaluate></div>
+
+  <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>Ng2snow</title>
+    
+    <!-- Init some variables 'n things. -->
+      <script>(function() { window['_app_base'] = window.location.pathname;window['_g_ck']="$[g_ck]";})()</script>
+    
+    <!-- bootstrap...why not use a CDN? Its so much easier-->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="9eeacb290f313200ebad3e4ce1050ea5.cssdbx" rel="stylesheet" type="text/css"></link>
+      <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="styles.d41d8cd98f00b204e980.bundle.css" rel="stylesheet"/></head>
+    <body>
+      <app-root>Loading...</app-root>
+    <script type="text/javascript" src="inline.87aba102feac16e38470.bundle.js"></script><script type="text/javascript" src="polyfills.ae83f0d8a9bc61eeeff9.bundle.js"></script><script type="text/javascript" src="vendor.fe77f1910edd7fd24249.bundle.js"></script><script type="text/javascript" src="main.b70f96ba0e33772a6fb6.bundle.js"></script></body>
+  </html>
+
+
+  <!-- 
+      ****************************************************************************
+      * BUNDLED FILES
+      ****************************************************************************
+      * We have to use jelly to include our bundled files. This tries to default
+      * to finding 4 files (inline,main,vendor,polyfill) within the same scope as the ui page
+      * if your files are named differently, then you will need to manually add them.
+      ****************************************************************************
+    <g:requires name="scope.script.jsdbx" />
+  -->
+  <g:requires name="$[this].inline.jsdbx" />
+  <g:requires name="$[this].polyfills.jsdbx" />
+  <g:requires name="$[this].vendor.jsdbx" />
+  <g:requires name="$[this].main.jsdbx" />
+  
+  <!--
+      ****************************************************************************
+      * LIVE RELOAD
+      ****************************************************************************
+      * Uncomment this to enable live reload. This requires that you have the live
+      * reload application (https://github.com/nathangrove/servicenow-livereload.git)
+      * installed on your instance. This isn't really necessary for Angular2 
+      * development. Developing locally is much better. 
+      ****************************************************************************
+      <g:requires name="x_80477_livereload.ui_page_livereload.jsdbx?page=$[sys_id]" />
+  -->   
+    
+</j:jelly>
+]]></html>
         <name>index</name>
         <processing_script/>
         <sys_class_name>sys_ui_page</sys_class_name>
@@ -17,7 +68,7 @@
         <sys_created_on>2017-03-29 12:30:00</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>52eacb290f313200ebad3e4ce1050ec4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>index</sys_name>
         <sys_package display_value="CCW3949" source="x_60972_ccw3949">96e047210f313200ebad3e4ce1050e13</sys_package>
         <sys_policy/>
@@ -25,6 +76,6 @@
         <sys_scope display_value="CCW3949">96e047210f313200ebad3e4ce1050e13</sys_scope>
         <sys_update_name>sys_ui_page_52eacb290f313200ebad3e4ce1050ec4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-03-29 12:30:00</sys_updated_on>
+        <sys_updated_on>2017-03-29 13:05:44</sys_updated_on>
     </sys_ui_page>
 </record_update>
