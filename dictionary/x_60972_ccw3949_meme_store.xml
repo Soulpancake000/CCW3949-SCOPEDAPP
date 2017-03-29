@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Meme Store" max_length="40" name="x_60972_ccw3949_meme_store" type="collection">
+        <element label="Generator" max_length="40" name="generator" type="string"/>
+        <element label="Text0" max_length="40" name="text0" type="string"/>
+        <element label="Text1" max_length="40" name="text1" type="string"/>
+        <element label="URL" max_length="500" name="url" type="string"/>
+    </element>
+</database>
