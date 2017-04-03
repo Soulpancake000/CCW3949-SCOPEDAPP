@@ -12,7 +12,7 @@
         <sys_class_name>sys_user_role</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-03-29 11:53:14</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>3b72c7250f313200ebad3e4ce1050edb</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_60972_ccw3949.meme_store_user</sys_name>

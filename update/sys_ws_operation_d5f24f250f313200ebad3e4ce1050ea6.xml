@@ -45,7 +45,7 @@
     if (res.getStatusCode() == 200) return "/nav_to.do?uri=task.do?sys_id=" + body.record;
   
     // else return the response that was given to us...
-    else return res.getBody();
+    else return 'Server responded with code: ' + res.getStatusCode();
     
     /**
      * validator function - return true if all fields are on object
@@ -71,7 +71,7 @@
         <sys_created_on>2017-03-29 11:58:00</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>d5f24f250f313200ebad3e4ce1050ea6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Attach</sys_name>
         <sys_package display_value="CCW3949" source="x_60972_ccw3949">96e047210f313200ebad3e4ce1050e13</sys_package>
         <sys_policy/>
@@ -79,7 +79,7 @@
         <sys_scope display_value="CCW3949">96e047210f313200ebad3e4ce1050e13</sys_scope>
         <sys_update_name>sys_ws_operation_d5f24f250f313200ebad3e4ce1050ea6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-03-29 11:58:00</sys_updated_on>
+        <sys_updated_on>2017-04-03 14:23:47</sys_updated_on>
         <web_service_definition display_value="Attach Meme">8bb2cb250f313200ebad3e4ce1050e0a</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
