@@ -12,10 +12,10 @@
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
         <runtime_access_tracking>permissive</runtime_access_tracking>
-        <scope>x_dete_ccw3949</scope>
+        <scope>x_60972_ccw3949</scope>
         <scoped_administration>false</scoped_administration>
         <short_description/>
-        <source>x_dete_ccw3949</source>
+        <source>x_60972_ccw3949</source>
         <store_correlation_id/>
         <store_url/>
         <sys_class_name>sys_app</sys_class_name>
